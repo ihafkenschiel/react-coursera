@@ -1,7 +1,8 @@
 import React from 'react';
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, NavbarText } from 'reactstrap';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import Menu from './components/MenuComponent';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           </NavItem>
         </Nav>
       </Navbar>
+      <Menu />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Menu from './components/MenuComponent';
+import Dishdetail from './components/DishdetailComponent';
 import { DISHES } from './shared/dishes';
 
 
@@ -31,6 +32,7 @@ class App extends Component {
           </Nav>
         </Navbar>
         <Menu dishes={this.state.dishes} />
+        <Dishdetail />
       </div>
     );
   }

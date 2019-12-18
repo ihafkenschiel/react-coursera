@@ -11,14 +11,31 @@ class Dishdetail extends Component {
 
   renderDish(dish) {
     if (dish != null) {
+
+      const comments = dish.comments.map((comment) => {
+        return (
+          <div key={comment.id}>
+            <div>{comment.comment}</div>
+            <div>-- {comment.author}, {comment.date}</div>
+          </div>
+        );
+      });
+
+
       return (
-        <Card>
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>{dish.name}</CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
+        <div className="row">
+          <Card className="col-12 col-md-6">
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardBody>
+              <CardTitle>{dish.name}</CardTitle>
+              <CardText>{dish.description}</CardText>
+            </CardBody>
+          </Card>
+          <div className="col-12 col-md-6">
+            <h1>Comments</h1>
+            {comments}
+          </div>
+        </div>
       );
     } else {
       return (
@@ -29,7 +46,7 @@ class Dishdetail extends Component {
 
   render() {
     return (
-      <div className="row">
+      <div>
         {this.renderDish(this.props.selectedDish)}
       </div>
     )

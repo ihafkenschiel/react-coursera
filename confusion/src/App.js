@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './App.css';
 import { Navbar, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import Menu from './components/MenuComponent';
-import Dishdetail from './components/DishdetailComponent';
 import { DISHES } from './shared/dishes';
 
 
@@ -13,13 +12,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      dishes: DISHES,
-      selectedDish: null
+      dishes: DISHES
     };
-  }
-
-  onDishSelect = (dish) => {
-    this.setState({ selectedDish: dish });
   }
 
   render() {
@@ -36,8 +30,7 @@ class App extends Component {
             </NavItem>
           </Nav>
         </Navbar>
-        <Menu dishes={this.state.dishes} onDishSelect={this.onDishSelect} />
-        <Dishdetail selectedDish={this.state.selectedDish} />
+        <Menu dishes={this.state.dishes} />
       </div>
     );
   }

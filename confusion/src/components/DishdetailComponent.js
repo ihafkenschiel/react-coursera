@@ -9,31 +9,44 @@ class Dishdetail extends Component {
     };
   }
 
-  renderDish(dish) {
-    if (dish != null) {
+  renderComments(comments) {
+    if (comments != null) {
 
-      const comments = dish.comments.map((comment) => {
+      const commentsHTML = comments.map((comment) => {
         return (
-          <div key={comment.id}>
-            <div>{comment.comment}</div>
-            <div>-- {comment.author}, {comment.date}</div>
+          <div key={comment.id} className="list-unstyled">
+            <div className="mt-3">{comment.comment}</div>
+            <div className="mt-3">-- {comment.author}, {comment.date}</div>
           </div>
         );
       });
 
+      return (
+        <div>{commentsHTML}</div>
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
+  }
 
+  renderDish(dish) {
+    if (dish != null) {
       return (
         <div className="row">
-          <Card className="col-12 col-md-6">
-            <CardImg width="100%" src={dish.image} alt={dish.name} />
-            <CardBody>
-              <CardTitle>{dish.name}</CardTitle>
-              <CardText>{dish.description}</CardText>
-            </CardBody>
-          </Card>
-          <div className="col-12 col-md-6">
-            <h1>Comments</h1>
-            {comments}
+          <div className="col-12 col-md-5 m-1">
+            <Card>
+              <CardImg width="100%" src={dish.image} alt={dish.name} />
+              <CardBody>
+                <CardTitle>{dish.name}</CardTitle>
+                <CardText>{dish.description}</CardText>
+              </CardBody>
+            </Card>
+          </div>
+          <div className="col-12 col-md-5 m-1">
+            <h4>Comments</h4>
+            {this.renderComments(dish.comments)}
           </div>
         </div>
       );

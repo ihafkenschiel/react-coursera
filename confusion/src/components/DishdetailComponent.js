@@ -14,10 +14,10 @@ class Dishdetail extends Component {
 
       const commentsHTML = comments.map((comment) => {
         return (
-          <div key={comment.id} className="list-unstyled">
-            <div className="mt-3">{comment.comment}</div>
-            <div className="mt-3">-- {comment.author}, {comment.date}</div>
-          </div>
+          <ul key={comment.id} className="list-unstyled">
+            <li className="mt-3">{comment.comment}</li>
+            <li className="mt-3">-- {comment.author}, {comment.date}</li>
+          </ul>
         );
       });
 

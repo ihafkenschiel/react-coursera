@@ -3,31 +3,6 @@ import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
 class Dishdetail extends Component {
 
-  renderComments(comments) {
-    if (comments != null) {
-
-      const commentsHTML = comments.map((comment) => {
-        return (
-          <div className="col-12 col-md-5 m-1">
-            <h4>Comments</h4>
-            <ul key={comment.id} className="list-unstyled">
-              <li className="mt-3">{comment.comment}</li>
-              <li className="mt-3">-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
-            </ul>
-          </div>
-        );
-      });
-
-      return (
-        <div>{commentsHTML}</div>
-      );
-    } else {
-      return (
-        <div></div>
-      );
-    }
-  }
-
   componentDidMount() {
     console.log('Dishdetail component componentDidMount is invoked');
   }
@@ -47,6 +22,31 @@ class Dishdetail extends Component {
               <CardText>{dish.description}</CardText>
             </CardBody>
           </Card>
+        </div>
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
+  }
+
+  renderComments(comments) {
+    if (comments != null) {
+
+      const commentsHTML = comments.map((comment) => {
+        return (
+          <ul key={comment.id} className="list-unstyled">
+            <li className="mt-3">{comment.comment}</li>
+            <li className="mt-3">-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</li>
+          </ul>
+        );
+      });
+
+      return (
+        <div className="col-12 col-md-5 m-1">
+          <h4>Comments</h4>
+          {commentsHTML}
         </div>
       );
     } else {

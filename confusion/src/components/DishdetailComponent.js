@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
-class Dishdetail extends Component {
+class DishDetail extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-    };
   }
 
   renderComments(comments) {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardText } from 'reactstrap';
 
-class Dishdetail extends Component {
+class DishDetail extends Component {
 
   componentDidMount() {
     console.log('Dishdetail component componentDidMount is invoked');
@@ -12,7 +12,6 @@ class Dishdetail extends Component {
   }
 
   renderDish(dish) {
-    if (dish != null) {
       return (
         <div className="col-12 col-md-5 m-1">
           <Card>
@@ -24,11 +23,6 @@ class Dishdetail extends Component {
           </Card>
         </div>
       );
-    } else {
-      return (
-        <div></div>
-      );
-    }
   }
 
   renderComments(comments) {
@@ -57,6 +51,9 @@ class Dishdetail extends Component {
   }
 
   render() {
+
+    console.log('Dishdetail component componentDidRender is invoked');
+
     if (this.props.dish != null) {
       return (
         <div className="container">
@@ -75,4 +72,4 @@ class Dishdetail extends Component {
 
 }
 
-    export default Dishdetail;
+    export default DishDetail;

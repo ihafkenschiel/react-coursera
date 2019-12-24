@@ -42,9 +42,9 @@ class Main extends Component {
       <Header/>
       <Switch>
         <Route path="/home" component={HomePage}/>
-        <Route exact="exact" path="/menu" component={() => <Menu dishes={this.state.dishes}/>}/>
+        <Route exact="exact" path="/menu" component={() => <Menu dishes={this.state.dishes}/>} />
         <Route path='/menu/:dishId' component={DishWithId}/>
-        <Route exact="exact" path="/aboutus" component={About}/>
+        <Route exact="exact" path="/aboutus" component={() => <About leaders={this.state.leaders}/>} />
         <Route exact="exact" path="/contactus" component={Contact}/>
         <Redirect to="/home"/>
       </Switch>

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 function RenderLeader( {leader} ) {
   return (
     <Media className="my-4">
-      <Media left className="mx-3">
+      <Media left className="m-3">
         <Media object src={leader.image} alt={leader.image} />
       </Media>
       <Media body>

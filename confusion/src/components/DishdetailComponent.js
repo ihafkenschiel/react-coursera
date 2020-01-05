@@ -72,6 +72,7 @@ const CommentForm = (props) => {
 
   const toggle = () => setModal(!modal);
 
+
   return (
     <div>
       <Button outline onClick={toggle}>
@@ -80,7 +81,7 @@ const CommentForm = (props) => {
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader>Submit Comment</ModalHeader>
         <ModalBody>
-          <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+          <LocalForm>
             <Row className="form-group">
               <Label htmlFor="rating" md={2}>Rating</Label>
               <Col md={10}>

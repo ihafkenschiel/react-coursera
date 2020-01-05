@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 import {
   Card,
   CardImg,
@@ -6,12 +6,17 @@ import {
   CardBody,
   CardTitle,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  Form
 } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 function RenderDish({dish}) {
-  return (<div className="col-12 col-md-5 m-1">
+  return (<div>
     <Card>
       <CardImg width="100%" src={dish.image} alt={dish.name}/>
       <CardBody>
@@ -25,7 +30,7 @@ function RenderDish({dish}) {
 function RenderComments({comments}) {
   if (comments != null) {
 
-    return (<div className="col-12 col-md-5 m-1">
+    return (<div>
       <h4>Comments</h4>
       <ul className="list-unstyled">
         {
@@ -43,12 +48,40 @@ function RenderComments({comments}) {
           })
         }
       </ul>
+      <CommentForm />
     </div>);
 
   } else {
     return (<div></div>);
   }
 }
+
+const CommentForm = (props) => {
+  const {
+    className
+  } = props;
+
+  const [modal, setModal] = useState(false);
+
+  const toggle = () => setModal(!modal);
+
+  return (
+    <div>
+      <Button outline onClick={toggle}>
+        <span className="fa fa-pencil fa-lg"></span> Submit Comment
+      </Button>
+      <Modal isOpen={modal} toggle={toggle} className={className}>
+        <ModalHeader>Login</ModalHeader>
+        <ModalBody>
+          <Form>
+            <Button type="submit" value="submit" color="primary">Login</Button>
+          </Form>
+        </ModalBody>
+      </Modal>
+    </div>
+  );
+}
+
 
 const DishDetail = (props) => {
 

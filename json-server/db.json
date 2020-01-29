@@ -265,6 +265,14 @@
       "comment": "fdsf",
       "date": "2020-01-27T03:08:56.533Z",
       "id": 27
+    },
+    {
+      "dishId": 0,
+      "rating": "5",
+      "author": "Ian",
+      "comment": "Testing on json-server.",
+      "date": "2020-01-29T15:20:09.813Z",
+      "id": 28
     }
   ],
   "promotions": [
